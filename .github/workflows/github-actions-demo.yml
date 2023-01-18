@@ -18,3 +18,9 @@ jobs:
     steps:
       - run: |
           echo "triggered by event: ${{ github.event_name }}"
+      - uses: actions/checkout@v3.0.2
+      - name: List files in the repository
+        run: |
+          echo: "Listing the files in the repo ${{ github.repository }}"
+          tree
+
