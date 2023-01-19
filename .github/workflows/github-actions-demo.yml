@@ -24,9 +24,8 @@ jobs:
       - run: |
           echo "triggered by event: ${{ github.event_name }}"
       - name: Debug output of the environment
-        if: github.event.name == 'workflow_dispatch'
         run: |
-          echo "this has been manually triggerd, and the selected env is: ${{ github.event.inputs.environment }}
+          echo "the selected env is: ${{ github.event.inputs.environment }}
       - uses: actions/checkout@v3.0.2
       - name: List files in the repository
         run: |
