@@ -31,4 +31,14 @@ jobs:
         run: |
           echo "Listing the files in the repo ${{ github.repository }}"
           tree
+          
+  Production-deployment:
+    runs-on: ubuntu-latest
+    ## needs: [Test, Load-Test] ## this would introduce a depends-on those jobs
+    environment:
+      name: Production
+      url: https://wheretodeployit
+    if: github.event.inputs.environment == 'Production'
+    steps:
+      - run: echo "deploying to prod now!"
 
